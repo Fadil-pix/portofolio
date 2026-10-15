@@ -191,25 +191,38 @@
     </div>
 
     <script>
+      // Daftar kata yang akan diketik bergantian
       const words = ["Web Developer", "Design Graphic", "Data Analyst"];
       const el = document.getElementById("typed");
-      let w = 0,
-        i = 0,
-        del = false;
-      (function tick() {
-        const t = words[w];
-        el.textContent = t.slice(0, i);
-        if (!del && i === t.length) {
-          del = true;
-          return setTimeout(tick, 1600);
+
+      let wordIndex = 0;      // kata keberapa sekarang
+      let charIndex = 0;      // karakter keberapa yang sudah tampil
+      let isDeleting = false; // sedang menghapus atau mengetik?
+
+      function type() {
+        const currentWord = words[wordIndex];
+
+        // Tampilkan teks sebanyak charIndex karakter
+        el.textContent = currentWord.slice(0, charIndex);
+
+        if (!isDeleting && charIndex === currentWord.length) {
+          // Sudah selesai diketik → tunggu lalu mulai hapus
+          isDeleting = true;
+          setTimeout(type, 1600);
+          return;
         }
-        if (del && i === 0) {
-          del = false;
-          w = (w + 1) % words.length;
+
+        if (isDeleting && charIndex === 0) {
+          // Sudah habis dihapus → pindah ke kata berikutnya
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
         }
-        i += del ? -1 : 1;
-        setTimeout(tick, del ? 40 : 90);
-      })();
+
+        charIndex += isDeleting ? -1 : 1;
+        setTimeout(type, isDeleting ? 40 : 90);
+      }
+
+      type(); // mulai animasi
 
       const links = document.querySelectorAll(".navbar a");
       const io = new IntersectionObserver(
@@ -224,30 +237,35 @@
       );
       document.querySelectorAll("section").forEach((s) => io.observe(s));
 
-      // Lightbox
+      // === LIGHTBOX ===
       const lightbox = document.getElementById("lightbox");
-      const lbImg = lightbox.querySelector(".lightbox-img");
+      const lightboxImg = lightbox.querySelector(".lightbox-img");
 
+      // Buka lightbox saat gambar di klik
       document.querySelectorAll(".thumb img").forEach((img) => {
         img.addEventListener("click", () => {
-          lbImg.src = img.src;
-          lbImg.alt = img.alt;
-          lightbox.classList.add("open");
-          document.body.style.overflow = "hidden";
+          lightboxImg.src = img.src;       // pasang gambar yang diklik
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add("open");  // tampilkan lightbox
+          document.body.style.overflow = "hidden"; // matikan scroll
         });
       });
 
+      // Fungsi untuk menutup lightbox
       function closeLightbox() {
-        lightbox.classList.remove("open");
-        document.body.style.overflow = "";
+        lightbox.classList.remove("open"); // sembunyikan lightbox
+        document.body.style.overflow = ""; // aktifkan scroll lagi
       }
 
-      lightbox
-        .querySelector(".lightbox-close")
-        .addEventListener("click", closeLightbox);
+      // Tutup lewat tombol ×
+      lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+
+      // Tutup dengan klik area gelap di luar gambar
       lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) closeLightbox();
       });
+
+      // Tutup dengan tekan tombol Escape
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeLightbox();
       });
