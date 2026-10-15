@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faezig | Portofolio</title>
+    <link rel="icon" type="image/png" href="assets/me.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar" aria-label="Navigasi utama">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-text">
+          <span class="pill" aria-hidden="true"></span>
+          <h1>Hi, I'm Fadil.</h1>
+          <h2><span id="typed"></span><span class="cursor">|</span></h2>
+          <p class="lead">
+            Dunia menuntut kita untuk terus berlari mengejarnya, maka dari itu.
+            Aku selalu berusaha untuk menjadi yang paling terdepan.
+          </p>
+          <p class="meta">
+            <span>· Indonesia</span><span>· Available for projects</span>
+          </p>
+          <div class="buttons">
+            <a href="#contact" class="btn btn-dark">→ Hire Me</a>
+            <a
+              href="assets/CV - Lulusan PPLG.pdf"
+              class="btn btn-light"
+              download
+              >⬇ Download CV</a
+            >
+          </div>
+          <hr />
+          <div class="follow">
+            Follow me:
+            <a
+              href="https://github.com/Fadil-pix"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="assets/github.svg"
+                alt="GitHub"
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              href="https://www.tiktok.com/@faezigg"
+              aria-label="TikTok"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="assets/tiktok.svg"
+                alt="TikTok"
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/f4zig_"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="assets/instagram.svg"
+                alt="Instagram"
+                width="20"
+                height="20"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <img src="assets/me.png" alt="Foto Fadil" class="hero-image" />
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h2 class="title">About</h2>
+        <div class="about-grid">
+          <p>
+            saya merupakan seorang dengan latar belakang pendidikan di bidang
+            teknologi informasi, khususnya dalam pengembangan web dan desain
+            grafis. saya memiliki pengalaman dalam mengelola proyek-proyek
+            digital, mulai dari perancangan antarmuka pengguna hingga analisis
+            data. dengan kemampuan saya dalam HTML, CSS, JavaScript, dan alat
+            desain seperti Figma, saya berkomitmen untuk menciptakan solusi
+            kreatif dan efektif yang memenuhi kebutuhan pengguna.
+          </p>
+          <ul class="skills">
+            <li>HTML &amp; CSS</li>
+            <li>JavaScript</li>
+            <li>UI Design</li>
+            <li>Data Analysis</li>
+            <li>Excel</li>
+            <li>Figma</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <h2 class="title">Projects</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="thumb">
+              <img src="assets/previewkls.png" alt="Preview Website Kelas" />
+            </div>
+            <h3>Website Kelas</h3>
+            <p>Tempat mengelola tugas-tugas, dokumentasi, dan kas.</p>
+          </article>
+          <article class="card">
+            <div class="thumb">
+              <img src="assets/database.png" alt="Preview Olah Data" />
+            </div>
+            <h3>Mengelola Database</h3>
+            <p>
+              Memproses dan menganalisis data untuk pengambilan keputusan
+              menggunakan Firebase.
+            </p>
+          </article>
+          <article class="card">
+            <div class="thumb">
+              <img src="assets/figma.png" alt="Preview Hasil Desain" />
+            </div>
+            <h3>Design Graphic</h3>
+            <p>
+              Desain grafis untuk berbagai kebutuhan digital seperti website,
+              poster, dan lainnya.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2 class="title">Contact</h2>
+        <p>Punya proyek atau ingin ngobrol? Kirim pesan lewat email.</p>
+        <a href="muhammadfadilstemsend@gmail.com" class="btn btn-dark"
+          >muhammadfadilstemsend@gmail.com</a
+        >
+      </section>
+    </main>
+
+    <footer>© 2026 Fadil</footer>
+
+    <!-- Lightbox Preview -->
+    <div
+      id="lightbox"
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Preview gambar"
+    >
+      <button class="lightbox-close" aria-label="Tutup">&times;</button>
+      <img class="lightbox-img" src="" alt="" />
+    </div>
+
+    <script>
+      const words = ["Web Developer", "Design Graphic", "Data Analyst"];
+      const el = document.getElementById("typed");
+      let w = 0,
+        i = 0,
+        del = false;
+      (function tick() {
+        const t = words[w];
+        el.textContent = t.slice(0, i);
+        if (!del && i === t.length) {
+          del = true;
+          return setTimeout(tick, 1600);
+        }
+        if (del && i === 0) {
+          del = false;
+          w = (w + 1) % words.length;
+        }
+        i += del ? -1 : 1;
+        setTimeout(tick, del ? 40 : 90);
+      })();
+
+      const links = document.querySelectorAll(".navbar a");
+      const io = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting)
+              links.forEach((a) =>
+                a.classList.toggle("active", a.hash === "#" + e.target.id),
+              );
+          }),
+        { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" },
+      );
+      document.querySelectorAll("section").forEach((s) => io.observe(s));
+
+      // Lightbox
+      const lightbox = document.getElementById("lightbox");
+      const lbImg = lightbox.querySelector(".lightbox-img");
+
+      document.querySelectorAll(".thumb img").forEach((img) => {
+        img.addEventListener("click", () => {
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lightbox.classList.add("open");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      lightbox
+        .querySelector(".lightbox-close")
+        .addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+  </body>
+</html>
