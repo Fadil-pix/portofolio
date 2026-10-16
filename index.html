@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -6,20 +6,24 @@
     <title>Fadil's</title>
     <link rel="icon" type="image/png" href="assets/me.png" />
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <!-- CSS (urutan penting: base â†’ komponen â†’ section â†’ lightbox) -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/lightbox.css" />
   </head>
 
   <body>
@@ -31,6 +35,7 @@
     </nav>
 
     <main>
+      <!-- ===== HERO ===== -->
       <section id="home" class="hero">
         <div class="hero-text">
           <span class="pill" aria-hidden="true"></span>
@@ -42,15 +47,15 @@
             solusi kreatif dan efektif.
           </p>
           <p class="meta">
-            <span>· Indonesia</span><span>· Available for projects</span>
+            <span>󠁯•󠁏 Indonesia</span><span>󠁯•󠁏 Available for projects</span>
           </p>
           <div class="buttons">
-            <a href="#contact" class="btn btn-dark">→ Hire Me</a>
+            <a href="#contact" class="btn btn-dark">✦ Hire Me</a>
             <a
               href="assets/CV - Lulusan PPLG.pdf"
               class="btn btn-light"
               download
-              >⬇ Download CV</a
+              >❇ Download CV</a
             >
           </div>
           <hr />
@@ -103,6 +108,7 @@
         </div>
       </section>
 
+      <!-- ===== ABOUT ===== -->
       <section id="about" class="section">
         <h2 class="title">About</h2>
         <div class="about-grid">
@@ -126,6 +132,7 @@
         </div>
       </section>
 
+      <!-- ===== PROJECTS ===== -->
       <section id="projects" class="section">
         <h2 class="title">Projects</h2>
         <div class="cards">
@@ -167,16 +174,44 @@
         </div>
       </section>
 
+      <!-- ===== CONTACT ===== -->
       <section id="contact" class="section">
         <h2 class="title">Contact</h2>
         <p>Punya proyek atau ingin ngobrol? Kirim pesan lewat email.</p>
-        <a href="mailto:muhammadfadilstemsend@gmail.com" class="btn btn-dark"
-          >muhammadfadilstemsend@gmail.com</a
+        <a
+          href="mailto:muhammadfadilstemsend@gmail.com"
+          class="btn btn-dark btn-icon"
         >
+          <img
+            src="assets/gmail.svg"
+            alt=""
+            width="18"
+            height="18"
+            class="btn-logo btn-logo-white"
+            aria-hidden="true"
+          />
+          Email
+        </a>
+        <a
+          href="https://wa.me/6285725819698"
+          class="btn btn-light btn-icon"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="assets/whatsapp.svg"
+            alt=""
+            width="18"
+            height="18"
+            class="btn-logo"
+            aria-hidden="true"
+          />
+          WhatsApp
+        </a>
       </section>
     </main>
 
-    <footer>© 2026 Fadil</footer>
+        <footer>&copy; 2026 Fadil</footer>
 
     <!-- Lightbox Preview -->
     <div
@@ -190,85 +225,11 @@
       <img class="lightbox-img" src="" alt="" />
     </div>
 
-    <script>
-      // Daftar kata yang akan diketik bergantian
-      const words = ["Web Developer", "Design Graphic", "Data Analyst"];
-      const el = document.getElementById("typed");
-
-      let wordIndex = 0;      // kata keberapa sekarang
-      let charIndex = 0;      // karakter keberapa yang sudah tampil
-      let isDeleting = false; // sedang menghapus atau mengetik?
-
-      function type() {
-        const currentWord = words[wordIndex];
-
-        // Tampilkan teks sebanyak charIndex karakter
-        el.textContent = currentWord.slice(0, charIndex);
-
-        if (!isDeleting && charIndex === currentWord.length) {
-          // Sudah selesai diketik → tunggu lalu mulai hapus
-          isDeleting = true;
-          setTimeout(type, 1600);
-          return;
-        }
-
-        if (isDeleting && charIndex === 0) {
-          // Sudah habis dihapus → pindah ke kata berikutnya
-          isDeleting = false;
-          wordIndex = (wordIndex + 1) % words.length;
-        }
-
-        charIndex += isDeleting ? -1 : 1;
-        setTimeout(type, isDeleting ? 40 : 90);
-      }
-
-      type(); // mulai animasi
-
-      const links = document.querySelectorAll(".navbar a");
-      const io = new IntersectionObserver(
-        (es) =>
-          es.forEach((e) => {
-            if (e.isIntersecting)
-              links.forEach((a) =>
-                a.classList.toggle("active", a.hash === "#" + e.target.id),
-              );
-          }),
-        { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" },
-      );
-      document.querySelectorAll("section").forEach((s) => io.observe(s));
-
-      // === LIGHTBOX ===
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = lightbox.querySelector(".lightbox-img");
-
-      // Buka lightbox saat gambar di klik
-      document.querySelectorAll(".thumb img").forEach((img) => {
-        img.addEventListener("click", () => {
-          lightboxImg.src = img.src;       // pasang gambar yang diklik
-          lightboxImg.alt = img.alt;
-          lightbox.classList.add("open");  // tampilkan lightbox
-          document.body.style.overflow = "hidden"; // matikan scroll
-        });
-      });
-
-      // Fungsi untuk menutup lightbox
-      function closeLightbox() {
-        lightbox.classList.remove("open"); // sembunyikan lightbox
-        document.body.style.overflow = ""; // aktifkan scroll lagi
-      }
-
-      // Tutup lewat tombol ×
-      lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
-
-      // Tutup dengan klik area gelap di luar gambar
-      lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-
-      // Tutup dengan tekan tombol Escape
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeLightbox();
-      });
-    </script>
+    <!-- JavaScript -->
+    <script src="js/typing.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/lightbox.js"></script>
   </body>
 </html>
+
+

@@ -1,0 +1,223 @@
+/* =========================================
+   HERO — Bagian utama halaman (section#home)
+   ========================================= */
+
+/* Geometric floating symbols — slow drift animation */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(12deg); }
+}
+@keyframes floatX {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(10px) rotate(-10deg); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Hero wrapper — position context for geo shapes */
+#home {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Asterisk besar di kanan atas ── */
+#home::before {
+  content: "✦";
+  position: absolute;
+  top: 10%;
+  right: 6%;
+  font-size: 5rem;
+  color: rgba(0, 0, 0, 0.055);
+  line-height: 1;
+  pointer-events: none;
+  animation: floatY 7s ease-in-out infinite;
+  font-family: serif;
+}
+
+/* ── Plus / cross di kiri bawah ── */
+#home::after {
+  content: "+";
+  position: absolute;
+  bottom: 14%;
+  left: 4%;
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.06);
+  line-height: 1;
+  pointer-events: none;
+  animation: floatX 9s ease-in-out infinite;
+  font-family: "Poppins", sans-serif;
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 24px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Asterisk kecil putar di samping foto ── */
+.hero-art {
+  position: relative;
+}
+.hero-art::before {
+  content: "✦";
+  position: absolute;
+  top: -22px;
+  right: -14px;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.18);
+  animation: spinSlow 12s linear infinite;
+  pointer-events: none;
+}
+.hero-art::after {
+  content: "◦ ◦ ◦";
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  font-size: 1rem;
+  letter-spacing: 6px;
+  color: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+
+/* Pill dekoratif kecil di atas nama */
+.pill {
+  display: block;
+  width: 26px;
+  height: 7px;
+  background: #e3e3e3;
+  border-radius: 99px;
+  margin-bottom: 28px;
+}
+
+/* Teks "Web Developer | Design Graphic | ..." dengan animasi typing */
+.hero h2 {
+  font-family: "Pixelify Sans", serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin: 18px 0 16px;
+  min-height: 2.6rem;
+}
+
+/* Kursor berkedip setelah teks yang sedang diketik */
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Paragraf deskripsi singkat */
+.lead {
+  max-width: 460px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Label lokasi & status (· Indonesia · Available) */
+.meta {
+  display: flex;
+  gap: 18px;
+  font-size: 0.8rem;
+  margin: 18px 0 22px;
+}
+
+/* Wrapper tombol Hire Me & Download CV */
+.buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Tombol umum */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 2px solid #000;
+  transition: transform 0.15s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-dark {
+  background: #000;
+  color: #fff;
+}
+.btn-light {
+  background: #fff;
+  color: #000;
+}
+
+/* Tombol dengan ikon */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-logo {
+  display: block;
+  flex-shrink: 0;
+}
+/* Ubah ikon SVG hitam menjadi putih di tombol gelap */
+.btn-logo-white {
+  filter: brightness(0) invert(1);
+}
+
+/* Baris "Follow me" dengan ikon sosmed */
+.follow {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 0.85rem;
+}
+.follow img {
+  display: block;
+}
+
+/* Kontainer gambar foto profil */
+.hero-art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-image {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 20px;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+/* Responsif: stack vertikal di layar kecil */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 110px;
+  }
+  .hero-art {
+    order: -1;
+  }
+  .hero-art svg {
+    margin: 0 auto;
+    max-width: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+

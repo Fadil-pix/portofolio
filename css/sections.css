@@ -1,0 +1,140 @@
+/* =========================================
+   SECTIONS — About, Projects, Contact
+   ========================================= */
+
+/* Wrapper umum setiap section */
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 90px 24px;
+  scroll-margin-top: 80px;
+}
+
+/* Judul section dengan font Pixelify + geometric accent */
+.title {
+  font-family: "Pixelify Sans", serif;
+  font-size: 2rem;
+  margin-bottom: 28px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Asterisk kecil di depan judul ── */
+.title::before {
+  content: "✦";
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── Garis pendek tipis di bawah judul ── */
+.title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: #111;
+  border-radius: 2px;
+}
+
+/* --- About --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Daftar keahlian berupa pill/tag */
+.skills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skills li {
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  position: relative;
+}
+
+/* ── Bintang kecil sebelum setiap skill ── */
+.skills li::before {
+  content: "✦ ";
+  font-size: 0.6rem;
+  vertical-align: middle;
+  opacity: 0.5;
+}
+
+/* --- Projects --- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  border: 1.5px solid #000;
+  border-radius: 14px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Corner accent di pojok kanan atas card ── */
+.card::before {
+  content: "+";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Kotak preview gambar proyek */
+.thumb {
+  height: 160px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+}
+
+.card h3 {
+  font-size: 1.05rem;
+}
+.card p {
+  font-size: 0.88rem;
+  color: #444;
+}
+
+/* --- Contact --- */
+#contact p {
+  margin-bottom: 20px;
+}
+
+/* --- Responsif --- */
+@media (max-width: 800px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
