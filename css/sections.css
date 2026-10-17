@@ -131,10 +131,41 @@
   margin-bottom: 20px;
 }
 
+.buttons-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 /* --- Responsif --- */
 @media (max-width: 800px) {
   .about-grid {
     grid-template-columns: 1fr;
+  }
+  .section {
+    padding: 70px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 56px 16px;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .buttons-contact {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .section {
+    padding: 48px 14px;
   }
 }
 

@@ -204,7 +204,8 @@
 @media (max-width: 800px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 110px;
+    padding: 100px 20px 60px;
+    gap: 28px;
   }
   .hero-art {
     order: -1;
@@ -212,6 +213,65 @@
   .hero-art svg {
     margin: 0 auto;
     max-width: 200px;
+  }
+  .hero-image {
+    max-width: 260px;
+    aspect-ratio: 3/4;
+    border-radius: 16px;
+  }
+  .lead {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 90px 16px 48px;
+    gap: 20px;
+  }
+  .hero-image {
+    max-width: 200px;
+  }
+  .hero h2 {
+    font-size: 1.25rem;
+    min-height: 2rem;
+  }
+  .lead {
+    font-size: 0.88rem;
+  }
+  .meta {
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 0 16px;
+  }
+  .buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .follow {
+    gap: 14px;
+    font-size: 0.8rem;
+  }
+  hr {
+    margin: 20px 0 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero {
+    padding: 82px 14px 40px;
+  }
+  .hero-image {
+    max-width: 170px;
   }
 }
 
