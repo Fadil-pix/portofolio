@@ -35,10 +35,10 @@
   background: #111;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   transition:
-    left   0.4s cubic-bezier(0.34, 1.4, 0.64, 1),
-    width  0.4s cubic-bezier(0.34, 1.4, 0.64, 1),
-    top    0.4s cubic-bezier(0.34, 1.4, 0.64, 1),
-    height 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
+    left   0.38s cubic-bezier(0.4, 0, 0.2, 1),
+    width  0.38s cubic-bezier(0.4, 0, 0.2, 1),
+    top    0.38s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
   z-index: 0;
 }
