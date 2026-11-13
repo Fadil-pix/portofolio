@@ -17,14 +17,14 @@
   align-items: center;
   gap: 2px;
   padding: 5px;
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--nav-bg);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--nav-border);
   border-radius: 999px;
   box-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.06),
-    0 1px 4px rgba(0, 0, 0, 0.04);
+    0 4px 20px var(--nav-shadow-1),
+    0 1px 4px var(--nav-shadow-2);
   animation: navIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -32,8 +32,8 @@
 .navbar-pill {
   position: absolute;
   border-radius: 999px;
-  background: #111;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  background: var(--nav-pill);
+  box-shadow: 0 2px 8px var(--nav-pill-shadow);
   transition:
     left   0.45s cubic-bezier(0.65, 0, 0.35, 1),
     width  0.45s cubic-bezier(0.65, 0, 0.35, 1),
@@ -51,21 +51,21 @@
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.03em;
-  color: #666;
+  color: var(--nav-link);
   transition: color 0.25s ease;
   white-space: nowrap;
 }
 
 .navbar a.active {
-  color: #fff;
+  color: var(--nav-link-active);
 }
 
 .navbar a:hover:not(.active) {
-  color: #111;
+  color: var(--nav-link-hover);
 }
 
 .navbar a:focus-visible {
-  outline: 2px solid rgba(0, 0, 0, 0.5);
+  outline: 2px solid var(--nav-focus);
   outline-offset: 3px;
 }
 

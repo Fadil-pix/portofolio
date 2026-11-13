@@ -29,7 +29,7 @@
   top: 10%;
   right: 6%;
   font-size: 5rem;
-  color: rgba(0, 0, 0, 0.055);
+  color: var(--deco-1);
   line-height: 1;
   pointer-events: none;
   animation: floatY 7s ease-in-out infinite;
@@ -44,7 +44,7 @@
   left: 4%;
   font-size: 4.5rem;
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.06);
+  color: var(--deco-2);
   line-height: 1;
   pointer-events: none;
   animation: floatX 9s ease-in-out infinite;
@@ -74,7 +74,7 @@
   top: -22px;
   right: -14px;
   font-size: 1.5rem;
-  color: rgba(0, 0, 0, 0.18);
+  color: var(--deco-3);
   animation: spinSlow 12s linear infinite;
   pointer-events: none;
 }
@@ -85,7 +85,7 @@
   left: 0;
   font-size: 1rem;
   letter-spacing: 6px;
-  color: rgba(0, 0, 0, 0.15);
+  color: var(--deco-4);
   pointer-events: none;
 }
 
@@ -94,7 +94,7 @@
   display: block;
   width: 26px;
   height: 7px;
-  background: #e3e3e3;
+  background: var(--pill-bg);
   border-radius: 99px;
   margin-bottom: 28px;
 }
@@ -120,7 +120,7 @@
 .lead {
   max-width: 460px;
   font-size: 0.95rem;
-  color: #333;
+  color: var(--text-soft);
 }
 
 /* Label lokasi & status (· Indonesia · Available) */
@@ -145,19 +145,19 @@
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 600;
-  border: 2px solid #000;
+  border: 2px solid var(--border);
   transition: transform 0.15s;
 }
 .btn:hover {
   transform: translateY(-2px);
 }
 .btn-dark {
-  background: #000;
-  color: #fff;
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
 }
 .btn-light {
-  background: #fff;
-  color: #000;
+  background: var(--btn-light-bg);
+  color: var(--btn-light-text);
 }
 
 /* Tombol dengan ikon */
@@ -169,10 +169,11 @@
 .btn-logo {
   display: block;
   flex-shrink: 0;
+  filter: var(--icon-on-light-filter);
 }
 /* Ubah ikon SVG hitam menjadi putih di tombol gelap */
 .btn-logo-white {
-  filter: brightness(0) invert(1);
+  filter: var(--icon-on-dark-filter);
 }
 
 /* Baris "Follow me" dengan ikon sosmed */
@@ -184,6 +185,7 @@
 }
 .follow img {
   display: block;
+  filter: var(--icon-filter);
 }
 
 /* Kontainer gambar foto profil */

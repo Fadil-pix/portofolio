@@ -1,0 +1,173 @@
+/* =========================================
+   THEME — Variabel warna (:root) Terang & Gelap
+   ========================================= */
+
+/* ── Mode terang (default) ── */
+:root {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --text: #111111;
+  --text-soft: #333333;
+  --text-muted: #444444;
+  --text-faint: #666666;
+
+  --border: #000000;
+  --border-soft: #eeeeee;
+  --hr: #999999;
+
+  --pill-bg: #e3e3e3;
+  --thumb-bg: #f0f0f0;
+
+  /* Dekorasi (✦ + ◦) */
+  --deco-1: rgba(0, 0, 0, 0.055);
+  --deco-2: rgba(0, 0, 0, 0.06);
+  --deco-3: rgba(0, 0, 0, 0.18);
+  --deco-4: rgba(0, 0, 0, 0.15);
+  --deco-5: rgba(0, 0, 0, 0.2);
+  --deco-6: rgba(0, 0, 0, 0.35);
+
+  /* Tombol */
+  --btn-dark-bg: #000000;
+  --btn-dark-text: #ffffff;
+  --btn-light-bg: #ffffff;
+  --btn-light-text: #000000;
+
+  /* Ikon SVG hitam: di mode terang tidak diubah */
+  --icon-filter: none;
+  --icon-on-dark-filter: brightness(0) invert(1);
+  --icon-on-light-filter: none;
+
+  /* Navbar */
+  --nav-bg: rgba(255, 255, 255, 0.72);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow-1: rgba(0, 0, 0, 0.06);
+  --nav-shadow-2: rgba(0, 0, 0, 0.04);
+  --nav-link: #666666;
+  --nav-link-hover: #111111;
+  --nav-link-active: #ffffff;
+  --nav-pill: #111111;
+  --nav-pill-shadow: rgba(0, 0, 0, 0.18);
+  --nav-focus: rgba(0, 0, 0, 0.5);
+
+  /* Toggle */
+  --toggle-bg: rgba(255, 255, 255, 0.72);
+  --toggle-border: rgba(0, 0, 0, 0.08);
+  --toggle-icon: #111111;
+}
+
+/* ── Mode gelap ── */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0e0e10;
+  --text: #f2f2f2;
+  --text-soft: #d0d0d0;
+  --text-muted: #b8b8b8;
+  --text-faint: #9a9a9a;
+
+  --border: #f2f2f2;
+  --border-soft: #26262a;
+  --hr: #555555;
+
+  --pill-bg: #3a3a3f;
+  --thumb-bg: #1b1b1f;
+
+  --deco-1: rgba(255, 255, 255, 0.07);
+  --deco-2: rgba(255, 255, 255, 0.08);
+  --deco-3: rgba(255, 255, 255, 0.25);
+  --deco-4: rgba(255, 255, 255, 0.2);
+  --deco-5: rgba(255, 255, 255, 0.25);
+  --deco-6: rgba(255, 255, 255, 0.45);
+
+  --btn-dark-bg: #f2f2f2;
+  --btn-dark-text: #0e0e10;
+  --btn-light-bg: #0e0e10;
+  --btn-light-text: #f2f2f2;
+
+  /* Ikon hitam → putih */
+  --icon-filter: brightness(0) invert(1);
+  --icon-on-dark-filter: none;            /* tombol "dark" kini berlatar terang → ikon hitam */
+  --icon-on-light-filter: brightness(0) invert(1);
+
+  --nav-bg: rgba(20, 20, 24, 0.72);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-shadow-1: rgba(0, 0, 0, 0.4);
+  --nav-shadow-2: rgba(0, 0, 0, 0.3);
+  --nav-link: #a0a0a5;
+  --nav-link-hover: #ffffff;
+  --nav-link-active: #0e0e10;
+  --nav-pill: #f2f2f2;
+  --nav-pill-shadow: rgba(0, 0, 0, 0.5);
+  --nav-focus: rgba(255, 255, 255, 0.6);
+
+  --toggle-bg: rgba(20, 20, 24, 0.72);
+  --toggle-border: rgba(255, 255, 255, 0.1);
+  --toggle-icon: #f2f2f2;
+}
+
+/* Transisi halus saat ganti tema (dipasang JS sementara) */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease !important;
+}
+
+/* ── Tombol switch tema ── */
+.theme-toggle {
+  position: fixed;
+  top: 28px;
+  right: 24px;
+  z-index: 11;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--toggle-border);
+  background: var(--toggle-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  color: var(--toggle-icon);
+  cursor: pointer;
+  box-shadow: 0 4px 20px var(--nav-shadow-1), 0 1px 4px var(--nav-shadow-2);
+  transition: transform 0.2s ease;
+}
+.theme-toggle:hover {
+  transform: translateY(-2px);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--nav-focus);
+  outline-offset: 3px;
+}
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Terang → tampilkan ikon bulan (untuk pindah ke gelap); gelap → ikon matahari */
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+@media (max-width: 800px) {
+  .theme-toggle { top: 20px; right: 14px; width: 38px; height: 38px; }
+  .theme-toggle svg { width: 17px; height: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after { transition: none !important; }
+  .theme-toggle { transition: none; }
+}

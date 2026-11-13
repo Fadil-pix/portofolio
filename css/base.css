@@ -14,8 +14,8 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  color: #111;
-  background: #fff;
+  color: var(--text);
+  background: var(--bg);
   line-height: 1.6;
 }
 
@@ -33,7 +33,7 @@ h1 {
 
 hr {
   border: 0;
-  border-top: 1px solid #999;
+  border-top: 1px solid var(--hr);
   max-width: 330px;
   margin: 28px 0 22px;
 }
@@ -42,8 +42,8 @@ footer {
   text-align: center;
   padding: 30px;
   font-size: 0.8rem;
-  color: #666;
-  border-top: 1px solid #eee;
+  color: var(--text-faint);
+  border-top: 1px solid var(--border-soft);
   position: relative;
 }
 
@@ -52,7 +52,7 @@ footer::before {
   content: "✦";
   display: block;
   font-size: 0.85rem;
-  color: rgba(0, 0, 0, 0.2);
+  color: var(--deco-5);
   margin-bottom: 6px;
 }
 
